@@ -32,11 +32,10 @@ namespace WM_Dev_Challenge_API_1
                 c.AddPolicy("AllowOrigins", options => options.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader());
             });
             services.AddControllersWithViews().AddNewtonsoftJson(options =>
-                options.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore)
+                options.SerializerSettings.ReferenceLoopHandling= Newtonsoft.Json.ReferenceLoopHandling.Ignore)
                 .AddNewtonsoftJson(options => options.SerializerSettings.ContractResolver = new DefaultContractResolver()
             );
-            services.AddDbContext<TitlesContext>(options =>
-            options.UseSqlServer(Configuration.GetConnectionString("WMDevChallengeConnection")));
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
