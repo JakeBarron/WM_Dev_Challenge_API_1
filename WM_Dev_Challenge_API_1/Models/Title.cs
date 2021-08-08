@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
 
 #nullable disable
 
@@ -28,5 +29,8 @@ namespace WM_Dev_Challenge_API_1
         public virtual ICollection<StoryLine> StoryLines { get; set; }
         public virtual ICollection<TitleGenre> TitleGenres { get; set; }
         public virtual ICollection<TitleParticipant> TitleParticipants { get; set; }
+
+        [NotMapped]
+        public IEnumerable<string> GenreNames { get; set; }
     }
 }

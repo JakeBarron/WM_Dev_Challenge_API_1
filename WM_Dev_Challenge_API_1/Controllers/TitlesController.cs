@@ -36,6 +36,10 @@ namespace WM_Dev_Challenge_API_1.Controllers
                 .Include(t => t.OtherNames)
                 .FirstOrDefaultAsync(t => t.TitleId == id);
 
+            var relevantGenreNames = await _context.Genres.Where(genre => title.TitleGenres.Select(tg => tg.GenreId).Contains(genre.Id)).Select(g => g.Name).ToListAsync();
+
+            title.GenreNames = relevantGenreNames;
+
             if (title == null)
             {
                 return NotFound();
@@ -48,7 +52,6 @@ namespace WM_Dev_Challenge_API_1.Controllers
         [HttpGet("search/{searchTerm}")]
         public async Task<ActionResult<IEnumerable<Title>>> SearchByTitleName(string searchTerm)
         {
-            Console.Write(searchTerm);
             return await _context.Titles.Where(title => title.TitleName.Contains(searchTerm)).ToListAsync();
         }
 
