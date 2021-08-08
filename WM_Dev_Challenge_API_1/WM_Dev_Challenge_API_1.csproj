@@ -11,7 +11,6 @@
     <None Remove="Microsoft.VisualStudio.Web.CodeGeneration.Design" />
     <None Remove="EntityFramework" />
     <None Remove="Microsoft.EntityFrameworkCore.Sqlite" />
-    <None Remove="Repositories\" />
     <None Remove="DAL\" />
     <None Remove="Microsoft.EntityFrameworkCore.Design" />
     <None Remove="Microsoft.EntityFrameworkCore.SqlServer" />
@@ -27,7 +26,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Models\" />
-    <Folder Include="Repositories\" />
     <Folder Include="DAL\" />
   </ItemGroup>
 </Project>
